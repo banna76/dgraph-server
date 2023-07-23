@@ -1,0 +1,8 @@
+mkdir strawberry-demo
+cd strawberry-demo
+python -m venv virtualenv
+.\virtualenv\Scripts\activate
+pip install strawberry-graphql[debug-server]
+
+Then run the following command
+strawberry server schema
