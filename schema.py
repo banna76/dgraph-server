@@ -4,12 +4,14 @@ import strawberry
 
 @strawberry.type
 class Book:
+    id: int
     title: str
     description: str
     price: float
     thumbnail: str
     currency: str
     author: 'Author'
+    amount: int
     
 @strawberry.type
 class Author:
@@ -34,12 +36,14 @@ class OrderBookInput:
 
 @strawberry.input
 class AddBookInput:
+    id: int
     title: str
     description: str
     price: float
     thumbnail: str
     currency: str
     author: AuthorInput
+    amount: int
 
 orders: list[OrderBook] = []
 books: list[Book] = []
@@ -48,10 +52,12 @@ authors: list[Author] = []
 async def get_books(self) -> list[Book]:
     return [
         Book(
+        id = 1,
         title = 'Remarkably Bright Creatures: A Novel',
         description = 'Remarkably Bright Creatures is a beautiful examination of how loneliness can be transformed, cracked open, with the slightest touch from another living thing.',
         price = 17.76,
         thumbnail ='assets/img/remarkably.jpg',
+        amount = 10,
         currency =  '€',
             author = Author (
                 firstName ="Shelby Van",
@@ -60,11 +66,13 @@ async def get_books(self) -> list[Book]:
             )
         ),
         Book(
+            id = 2,
             title = 'What My Bones Know: A Memoir of Healing from Complex Trauma',
             description= 'A searing memoir of reckoning and healing by acclaimed journalist Stephanie Foo, investigating the little-understood science behind complex PTSD and how it has shaped her life.',
             price= 18.76,
             thumbnail='assets/img/whatMyBonesKnow.jpg',
             currency=  '€',
+            amount = 10,
             author= Author (
                 firstName="Stephanie",
                 lastName="Foo",
@@ -72,11 +80,13 @@ async def get_books(self) -> list[Book]:
             )
         ),
         Book(
+            id = 3,
             title = 'All My Rage: A Novel',
             description= 'An INSTANT NEW YORK TIMES BESTSELLER!An INSTANT INDIE BESTSELLER!"All My Rage is a love story, a tragedy and an infectious teenage fever dream about what home means when you feel you don’t fit in." — New York Times Book Review',
             price= 12.93,
             thumbnail='assets/img/AllMyRage.jpg',
             currency=  '€',
+            amount = 10,
             author= Author (
                 firstName="Sabaa",
                 lastName="Tahir",
@@ -84,11 +94,13 @@ async def get_books(self) -> list[Book]:
             )
         ),
         Book(
+            id = 4,
             title = 'River of the Gods: Genius, Courage, and Betrayal in the Search for the Source of the Nile',
             description= 'NEW YORK TIMES BESTSELLER • The harrowing story of one of the great feats of exploration of all time and its complicated legacy—from the New York Times bestselling author of The River of Doubt and Destiny of the Republic.',
             price= 19.50,
             thumbnail='assets/img/RiverOfTheGods.jpg',
             currency=  '€',
+            amount = 10,
             author= Author (
                 firstName="Candice",
                 lastName="Millard",
@@ -96,11 +108,13 @@ async def get_books(self) -> list[Book]:
             )
         ),
         Book(
+            id = 5,
             title = 'The Maid: A Novel ',
             description= '#1 NEW YORK TIMES BESTSELLER • GOOD MORNING AMERICA BOOK CLUB PICK • “A heartwarming mystery with a lovable oddball at its center” (Real Simple), this cozy whodunit introduces a one-of-a-kind heroine who will steal your heart.',
             price= 16.04,
             thumbnail='assets/img/TheMaidANovel.jpg',
             currency=  '€',
+            amount = 10,
             author= Author (
                 firstName="Nita",
                 lastName="Prose",
